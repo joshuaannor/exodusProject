@@ -7,13 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadFeaturedProducts() {
-    // Load featured products dynamically
     const featuredProductsContainer = document.getElementById('featured-products-container');
     if (featuredProductsContainer) {
-        // Fetch featured products from products.js
-        const featuredProducts = products.slice(0, 3); // Example: first 3 products
+        const featuredProducts = products.slice(0, 3);
         featuredProducts.forEach(product => {
             const productElement = document.createElement('div');
+            productElement.classList.add('product');
             productElement.innerHTML = `
                 <img src="${product.image}" alt="${product.name}">
                 <h3>${product.name}</h3>
@@ -26,11 +25,11 @@ function loadFeaturedProducts() {
 }
 
 function loadProducts() {
-    // Load all products dynamically
     const productsContainer = document.getElementById('products-container');
     if (productsContainer) {
         products.forEach(product => {
             const productElement = document.createElement('div');
+            productElement.classList.add('product');
             productElement.innerHTML = `
                 <img src="${product.image}" alt="${product.name}">
                 <h3>${product.name}</h3>
@@ -43,7 +42,6 @@ function loadProducts() {
 }
 
 function loadProductDetail() {
-    // Load product detail dynamically
     const productDetailContainer = document.getElementById('product-detail-container');
     if (productDetailContainer) {
         const productId = new URLSearchParams(window.location.search).get('id');
@@ -61,13 +59,13 @@ function loadProductDetail() {
 }
 
 function loadCart() {
-    // Load cart items dynamically
     const cartContainer = document.getElementById('cart-container');
     if (cartContainer) {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         cart.forEach(item => {
             const product = products.find(p => p.id == item.id);
             const cartItemElement = document.createElement('div');
+            cartItemElement.classList.add('product');
             cartItemElement.innerHTML = `
                 <img src="${product.image}" alt="${product.name}">
                 <h3>${product.name}</h3>
@@ -83,7 +81,6 @@ function loadCart() {
 }
 
 function addToCart(productId) {
-    // Add product to cart
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const productIndex = cart.findIndex(item => item.id == productId);
     if (productIndex > -1) {
@@ -96,7 +93,6 @@ function addToCart(productId) {
 }
 
 function removeFromCart(productId) {
-    // Remove product from cart
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart = cart.filter(item => item.id != productId);
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -104,7 +100,6 @@ function removeFromCart(productId) {
 }
 
 function updateCart(productId, quantity) {
-    // Update product quantity in cart
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const productIndex = cart.findIndex(item => item.id == productId);
     if (productIndex > -1) {
@@ -115,12 +110,10 @@ function updateCart(productId, quantity) {
 }
 
 function handleCheckout() {
-    // Handle checkout form submission
     const checkoutForm = document.getElementById('checkout-form');
     if (checkoutForm) {
         checkoutForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            // Integrate with Stripe API for payment
             alert('Payment successful');
             localStorage.removeItem('cart');
             window.location.href = 'order.html';
