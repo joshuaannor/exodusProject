@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     loadFeaturedProducts();
     loadProducts();
@@ -14,7 +15,7 @@ function loadFeaturedProducts() {
             const productElement = document.createElement('div');
             productElement.classList.add('product');
             productElement.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
+                <i class="fas fa-tshirt fa-5x"></i>
                 <h3>${product.name}</h3>
                 <p>$${product.price}</p>
                 <button onclick="addToCart(${product.id})">Add to Cart</button>
@@ -31,7 +32,7 @@ function loadProducts() {
             const productElement = document.createElement('div');
             productElement.classList.add('product');
             productElement.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
+                <i class="fas fa-tshirt fa-5x"></i>
                 <h3>${product.name}</h3>
                 <p>$${product.price}</p>
                 <button onclick="addToCart(${product.id})">Add to Cart</button>
@@ -48,7 +49,7 @@ function loadProductDetail() {
         const product = products.find(p => p.id == productId);
         if (product) {
             productDetailContainer.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
+                <i class="fas fa-tshirt fa-5x"></i>
                 <h2>${product.name}</h2>
                 <p>${product.description}</p>
                 <p>$${product.price}</p>
@@ -67,7 +68,7 @@ function loadCart() {
             const cartItemElement = document.createElement('div');
             cartItemElement.classList.add('product');
             cartItemElement.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
+                <i class="fas fa-tshirt fa-5x"></i>
                 <h3>${product.name}</h3>
                 <p>$${product.price}</p>
                 <input type="number" value="${item.quantity}" min="1" onchange="updateCart(${product.id}, this.value)">
@@ -91,6 +92,7 @@ function addToCart(productId) {
     localStorage.setItem('cart', JSON.stringify(cart));
     alert('Product added to cart');
 }
+console.log("Cart contents:", JSON.parse(localStorage.getItem("cart")));
 
 function removeFromCart(productId) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
