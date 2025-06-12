@@ -146,7 +146,9 @@ footer ul li a:hover {
     margin: 0 auto;
 }
 
-.video-preview .video-container iframe {
+
+.video-preview .video-container video {
+
     position: absolute;
     top: 0;
     left: 0;
