@@ -37,7 +37,7 @@ nav ul li a:hover {
 }
 
 .hero {
-    background: url('hero.jpg') no-repeat center center/cover;
+    background: url('logo.png') no-repeat center center/cover;
     color: white;
     text-align: center;
     padding: 10rem 0;
@@ -155,4 +155,40 @@ footer ul li a:hover {
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+
+header {
+  background-color: #111;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #add8e6; /* sky blue hover */
 }
