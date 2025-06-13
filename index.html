@@ -1,40 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Exodus</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Exodus</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
-    <div id="site-header"></div>
-    <section class="hero">
-         <img src="logo.png" alt="Project Exodus Logo" class="hero-logo" />
-        <h1>Welcome to Project Exodus</h1>
-        <p>The Lord will fight for you; you need only to be still." – Exodus 14:14</p>
-    </section>
-    <section class="video-preview">
-        <h2>Brand Preview</h2>
-        <div class="video-container">
-            <video src="SWC.mp4" controls aria-label="Brand preview video" title="Brand Preview">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </section>
-    <section class="featured-products">
-        <h2>Featured Products</h2>
-        <div id="featured-products-container" class="product-grid"></div>
-    </section>
-    <footer>
-        <p>Follow us on:</p>
-        <ul>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Twitter</a></li>
-        </ul>
-    </footer>
-    <script src="products.js"></script>
-    <script src="script.js"></script>
+  <!-- Dynamic Header -->
+  <div id="site-header"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="logo.png" alt="Project Exodus Logo" class="hero-logo" />
+    <h1>EXODUS</h1>
+    <p>"The Lord will fight for you; you need only to be still." – Exodus 14:14</p>
+  </section>
+
+  <!-- Video Preview -->
+  <section class="video-preview">
+    <h2>Brand Preview</h2>
+    <div class="video-container">
+      <video src="SWC.mp4" controls aria-label="Brand preview video" title="Brand Preview">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <h2>Featured Products</h2>
+    <div id="featured-products-container" class="product-grid"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Follow us on:</p>
+    <ul>
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">Twitter</a></li>
+    </ul>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Load shared header
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('site-header').innerHTML = data;
+      });
+  </script>
+  <script src="products.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
