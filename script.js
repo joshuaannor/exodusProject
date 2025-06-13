@@ -173,3 +173,42 @@ function handleCheckout() {
         });
     }
 }
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff; /* Optional: use cloud image here later */
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-logo {
+    width: 120px;
+    max-width: 30vw;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    letter-spacing: 0.2em;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    font-style: italic;
+    color: #333;
+    max-width: 600px;
+}
+
+/* Optional fade-in animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
