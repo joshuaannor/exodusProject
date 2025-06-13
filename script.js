@@ -1,11 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
+    loadHeader().then(updateCartCount);
     loadFeaturedProducts();
     loadProducts();
     loadProductDetail();
     loadCart();
-    updateCartCount();
     handleCheckout();
 });
+
+function loadHeader() {
+    const headerEl = document.getElementById('site-header');
+    if (!headerEl) return Promise.resolve();
+    return fetch('header.html')
+        .then(res => res.text())
+        .then(html => {
+            headerEl.innerHTML = html;
+        });
+}
 
 //  Load Featured Products on Homepage
 function loadFeaturedProducts() {
