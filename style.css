@@ -1,21 +1,47 @@
-/* GLOBAL STYLES */
+/* ============================================================
+   CSS CUSTOM PROPERTIES — dark theme matching the demo palette
+   ============================================================ */
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: rgba(15, 15, 15, 0.6);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --primary: #ffffff;
+  --accent: #add8e6;
+  --muted: rgba(255, 255, 255, 0.5);
+  --muted-foreground: #999999;
+  --radius: 0.5rem;
+}
+
+/* ============================================================
+   GLOBAL RESET & BASE
+   ============================================================ */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #0f0f0f;
-  color: #f0f0f0;
-  padding-top: 100px;
-  padding-bottom: 80px;
+html {
+  background: #000000;
 }
 
-/* HEADER */
+body {
+  font-family: 'Inter', sans-serif;
+  background: transparent;
+  color: var(--foreground);
+  padding-top: 80px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   HEADER — glassmorphism so the animated background shows through
+   ============================================================ */
 header {
-  background-color: #000;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -24,7 +50,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  border-bottom: 1px solid #1a1a1a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .nav-logo {
@@ -36,10 +62,11 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 2rem;
+  align-items: center;
 }
 
 nav ul li a {
-  color: #f0f0f0;
+  color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
@@ -47,41 +74,65 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #add8e6;
+  color: var(--accent);
 }
 
-/* HERO SECTION */
+/* ============================================================
+   HERO SECTION — transparent so the background canvas is visible
+   ============================================================ */
 .hero {
   text-align: center;
-  padding: 6rem 2rem 4rem;
+  padding: 7rem 2rem 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #0f0f0f;
+  background: transparent;
+  animation: fadeIn 1.2s ease;
 }
 
 .hero-logo {
   max-width: 150px;
   margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.15));
 }
 
 .hero h1 {
-  font-size: 2.5rem;
-  letter-spacing: 0.25rem;
-  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  letter-spacing: 0.35rem;
+  margin-bottom: 0.75rem;
+  font-weight: 800;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
 }
 
 .hero p {
   font-size: 1rem;
   max-width: 500px;
-  color: #ccc;
+  color: var(--muted-foreground);
   font-style: italic;
+  line-height: 1.7;
 }
 
-/* VIDEO PREVIEW */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   VIDEO PREVIEW
+   ============================================================ */
 .video-preview {
   text-align: center;
   padding: 3rem 1rem;
+  background: transparent;
+}
+
+.video-preview h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-size: 0.85rem;
 }
 
 .video-preview .video-container {
@@ -91,6 +142,8 @@ nav ul li a:hover {
   overflow: hidden;
   max-width: 800px;
   margin: 0 auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
 }
 
 .video-preview .video-container video {
@@ -99,33 +152,50 @@ nav ul li a:hover {
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: var(--radius);
 }
 
-/* FEATURED PRODUCT */
-.featured-products {
+/* ============================================================
+   FEATURED PRODUCTS / SHOP
+   ============================================================ */
+.featured-products,
+.shop {
   padding: 3rem 1rem;
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   text-align: center;
 }
 
-.featured-products h2 {
-  font-size: 1.5rem;
+.featured-products h2,
+.shop h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
   margin-bottom: 2rem;
-  color: #ffffff;
+  color: var(--muted);
 }
 
 .product-grid {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 1.5rem;
 }
 
 .product {
-  background-color: #1c1c1c;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: 12px;
   padding: 2rem;
-  width: 350px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.product:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-4px);
 }
 
 .product img {
@@ -135,59 +205,220 @@ nav ul li a:hover {
 }
 
 .product h3 {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 0.05rem;
   margin-bottom: 0.5rem;
 }
 
 .product p {
-  font-size: 0.95rem;
-  color: #ccc;
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  margin-bottom: 1.25rem;
+}
+
+.product button,
+button[type="submit"],
+.btn {
+  background: var(--foreground);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.25s ease, opacity 0.25s ease;
+}
+
+.product button:hover,
+button[type="submit"]:hover,
+.btn:hover {
+  background: var(--accent);
+}
+
+/* ============================================================
+   PRODUCT DETAIL
+   ============================================================ */
+.product-detail {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+/* ============================================================
+   CART
+   ============================================================ */
+.cart {
+  max-width: 720px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.cart h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  color: var(--muted);
+}
+
+.cart h3 {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--foreground);
+}
+
+/* ============================================================
+   CHECKOUT
+   ============================================================ */
+.checkout {
+  max-width: 480px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+}
+
+.checkout h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+}
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+label {
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+}
+
+input,
+textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  color: var(--foreground);
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ============================================================
+   ABOUT / CONTACT pages
+   ============================================================ */
+.about,
+.contact {
+  max-width: 640px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+}
+
+.about h2,
+.contact h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+.about p,
+.contact p {
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   ORDER CONFIRMATION
+   ============================================================ */
+.order-confirmation {
+  max-width: 480px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+}
+
+.order-confirmation h2 {
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.product button {
-  background-color: #add8e6;
-  color: #000;
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.order-confirmation p {
+  color: var(--muted-foreground);
 }
 
-.product button:hover {
-  background-color: #d0edfb;
-}
-
-/* FOOTER */
+/* ============================================================
+   FOOTER — glassmorphism
+   ============================================================ */
 footer {
-  background-color: #111;
-  color: white;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--muted-foreground);
   text-align: center;
   padding: 1rem;
   position: fixed;
   width: 100%;
   bottom: 0;
+  z-index: 100;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.8rem;
 }
 
 footer ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  margin-top: 0.5rem;
-  padding: 0;
+  margin-top: 0.4rem;
+  gap: 2rem;
 }
 
 footer ul li a {
-  color: white;
+  color: var(--muted-foreground);
   text-decoration: none;
-  margin: 0 1rem;
   transition: color 0.3s;
 }
 
 footer ul li a:hover {
-  color: #add8e6;
+  color: var(--accent);
 }
