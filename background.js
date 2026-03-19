@@ -24,11 +24,11 @@
     // Organic floating gradient blobs — dark palette matching the demo
     // colors: ["#000000", "#1a1a1a", "#333333", "#ffffff"]
     const blobs = [
-      { xf: t => 0.25 + 0.18 * Math.sin(t * 0.22), yf: t => 0.30 + 0.15 * Math.cos(t * 0.18), r: 0.50, c: [40,  40,  40]  },
-      { xf: t => 0.75 + 0.15 * Math.cos(t * 0.28), yf: t => 0.65 + 0.18 * Math.sin(t * 0.20), r: 0.45, c: [30,  30,  30]  },
-      { xf: t => 0.50 + 0.22 * Math.sin(t * 0.15), yf: t => 0.45 + 0.20 * Math.cos(t * 0.32), r: 0.55, c: [55,  55,  55]  },
-      { xf: t => 0.15 + 0.12 * Math.cos(t * 0.35), yf: t => 0.72 + 0.12 * Math.sin(t * 0.25), r: 0.35, c: [20,  20,  20]  },
-      { xf: t => 0.85 + 0.10 * Math.sin(t * 0.40), yf: t => 0.22 + 0.12 * Math.cos(t * 0.30), r: 0.38, c: [35,  35,  35]  },
+      { xf: t => 0.25 + 0.30 * Math.sin(t * 0.22), yf: t => 0.30 + 0.28 * Math.cos(t * 0.18), r: 0.50, c: [40,  40,  40]  },
+      { xf: t => 0.75 + 0.28 * Math.cos(t * 0.28), yf: t => 0.65 + 0.30 * Math.sin(t * 0.20), r: 0.45, c: [30,  30,  30]  },
+      { xf: t => 0.50 + 0.35 * Math.sin(t * 0.15), yf: t => 0.45 + 0.32 * Math.cos(t * 0.32), r: 0.55, c: [55,  55,  55]  },
+      { xf: t => 0.20 + 0.25 * Math.cos(t * 0.35), yf: t => 0.70 + 0.25 * Math.sin(t * 0.25), r: 0.35, c: [20,  20,  20]  },
+      { xf: t => 0.80 + 0.20 * Math.sin(t * 0.40), yf: t => 0.25 + 0.22 * Math.cos(t * 0.30), r: 0.38, c: [35,  35,  35]  },
     ];
 
     function animate() {
@@ -71,7 +71,7 @@
 
       ctx.globalCompositeOperation = 'source-over';
 
-      t += 0.004;
+      t += 0.012;
       requestAnimationFrame(animate);
     }
 
