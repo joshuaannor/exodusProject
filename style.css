@@ -3,13 +3,13 @@
    ============================================================ */
 :root {
   --background: #000000;
-  --foreground: #ffffff;
-  --card: rgba(15, 15, 15, 0.6);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --primary: #ffffff;
-  --accent: #add8e6;
-  --muted: rgba(255, 255, 255, 0.5);
-  --muted-foreground: #999999;
+  --foreground: #e8ecf0;
+  --card: rgba(10, 14, 20, 0.6);
+  --card-border: rgba(120, 140, 165, 0.12);
+  --primary: #e8ecf0;
+  --accent: #8a9db3;
+  --muted: rgba(200, 210, 225, 0.45);
+  --muted-foreground: #7a8a9a;
   --radius: 0.5rem;
 }
 
@@ -50,7 +50,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(120, 140, 165, 0.10);
 }
 
 .nav-logo {
@@ -93,7 +93,7 @@ nav ul li a:hover {
 .hero-logo {
   max-width: 150px;
   margin-bottom: 1.5rem;
-  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.15));
+  filter: drop-shadow(0 0 24px rgba(138, 157, 179, 0.25));
 }
 
 .hero h1 {
@@ -101,7 +101,7 @@ nav ul li a:hover {
   letter-spacing: 0.35rem;
   margin-bottom: 0.75rem;
   font-weight: 800;
-  text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 40px rgba(138, 157, 179, 0.25);
 }
 
 .hero p {
@@ -194,7 +194,7 @@ nav ul li a:hover {
 }
 
 .product:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(138, 157, 179, 0.22);
   transform: translateY(-4px);
 }
 
@@ -325,7 +325,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(138, 157, 179, 0.35);
 }
 
 textarea {
@@ -401,7 +401,7 @@ footer {
   width: 100%;
   bottom: 0;
   z-index: 100;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(120, 140, 165, 0.08);
   font-size: 0.8rem;
 }
 
