@@ -21,14 +21,13 @@
     window.addEventListener('resize', resize);
     resize();
 
-    // Organic floating gradient blobs — dark palette matching the demo
-    // colors: ["#000000", "#1a1a1a", "#333333", "#ffffff"]
+    // Organic floating gradient blobs — steel blue / slate palette matching the logo
     const blobs = [
-      { xf: t => 0.25 + 0.30 * Math.sin(t * 0.22), yf: t => 0.30 + 0.28 * Math.cos(t * 0.18), r: 0.50, c: [40,  40,  40]  },
-      { xf: t => 0.75 + 0.28 * Math.cos(t * 0.28), yf: t => 0.65 + 0.30 * Math.sin(t * 0.20), r: 0.45, c: [30,  30,  30]  },
-      { xf: t => 0.50 + 0.35 * Math.sin(t * 0.15), yf: t => 0.45 + 0.32 * Math.cos(t * 0.32), r: 0.55, c: [55,  55,  55]  },
-      { xf: t => 0.20 + 0.25 * Math.cos(t * 0.35), yf: t => 0.70 + 0.25 * Math.sin(t * 0.25), r: 0.35, c: [20,  20,  20]  },
-      { xf: t => 0.80 + 0.20 * Math.sin(t * 0.40), yf: t => 0.25 + 0.22 * Math.cos(t * 0.30), r: 0.38, c: [35,  35,  35]  },
+      { xf: t => 0.25 + 0.30 * Math.sin(t * 0.22), yf: t => 0.30 + 0.28 * Math.cos(t * 0.18), r: 0.50, c: [28,  38,  52]  },
+      { xf: t => 0.75 + 0.28 * Math.cos(t * 0.28), yf: t => 0.65 + 0.30 * Math.sin(t * 0.20), r: 0.45, c: [22,  30,  42]  },
+      { xf: t => 0.50 + 0.35 * Math.sin(t * 0.15), yf: t => 0.45 + 0.32 * Math.cos(t * 0.32), r: 0.55, c: [40,  52,  68]  },
+      { xf: t => 0.20 + 0.25 * Math.cos(t * 0.35), yf: t => 0.70 + 0.25 * Math.sin(t * 0.25), r: 0.35, c: [15,  20,  30]  },
+      { xf: t => 0.80 + 0.20 * Math.sin(t * 0.40), yf: t => 0.25 + 0.22 * Math.cos(t * 0.30), r: 0.38, c: [30,  40,  55]  },
     ];
 
     function animate() {
@@ -64,7 +63,7 @@
       const ay = (0.42 + 0.20 * Math.cos(t * 0.16)) * h;
       const ar = 0.28 * Math.min(w, h) * (1 + 0.08 * Math.sin(t * 2.0));
       const accent = ctx.createRadialGradient(ax, ay, 0, ax, ay, ar);
-      accent.addColorStop(0, 'rgba(255,255,255,0.025)');
+      accent.addColorStop(0, 'rgba(138,157,179,0.04)');
       accent.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = accent;
       ctx.fillRect(0, 0, w, h);
